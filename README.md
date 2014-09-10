@@ -1,5 +1,7 @@
 # API Template
 
+[![Build Status](https://api.shippable.com/projects/540e72f23479c5ea8f9e4fc2/badge?branchName=master)](https://app.shippable.com/projects/540e72f23479c5ea8f9e4fc2/builds/latest)
+
 ### Starting the Project
 1. Create a new repository for this project
 1. Create a cookbooks repository for this project (see the [cookbook-template README](https://github.com/synapsestudios/cookbook-template) for more details).
