@@ -17,11 +17,11 @@
 
 return [
     'loggly' => [
-        'enable' => true,
+        'enable' => false,
         'token'  => null,
     ],
     'rollbar' => [
-        'enable'                        => true,
+        'enable'                        => false,
         'post_server_item_access_token' => null,
         'root'                          => APPDIR,
     ],
