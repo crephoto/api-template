@@ -11,6 +11,6 @@
 
 return [
     'driver'  => 'Pdo_Mysql',
-    'charset' => 'utf-8',
+    'charset' => 'utf8mb4',
     'socket'  => false,
 ];
