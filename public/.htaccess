@@ -1,7 +1,7 @@
 # Disable directory indexes
 Options All -Indexes
 
-<LimitExcept GET PUT POST DELETE HEAD OPTIONS>
+<LimitExcept GET PUT PATCH POST DELETE HEAD OPTIONS>
     Order deny,allow
     Deny from all
 </LimitExcept>
