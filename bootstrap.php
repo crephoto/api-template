@@ -30,7 +30,7 @@ $applicationInitializer = new Synapse\ApplicationInitializer;
 
 $app = $applicationInitializer->initialize();
 
-// Set the and services
+// Set the default services
 $defaultServices = new Synapse\Application\Services;
 
 $defaultServices->register($app);
