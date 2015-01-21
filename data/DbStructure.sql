@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `app_migrations`;
 CREATE TABLE `app_migrations` (
   `timestamp` varchar(14) NOT NULL,
   `description` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,7 +58,7 @@ CREATE TABLE `emails` (
   KEY `recipient_email` (`recipient_email`),
   KEY `status` (`status`),
   KEY `subject` (`subject`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +77,7 @@ CREATE TABLE `oauth_access_tokens` (
   PRIMARY KEY (`access_token`),
   KEY `fk_oauth_access_tokens_user_id` (`user_id`),
   CONSTRAINT `oauth_access_tokens_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,7 +97,7 @@ CREATE TABLE `oauth_authorization_codes` (
   PRIMARY KEY (`authorization_code`),
   KEY `fk_oauth_auth_codes_user_id` (`user_id`),
   CONSTRAINT `oauth_authorization_codes_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,7 +115,7 @@ CREATE TABLE `oauth_clients` (
   `scope` varchar(100) DEFAULT NULL,
   `user_id` varchar(80) DEFAULT NULL,
   PRIMARY KEY (`client_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,7 +130,7 @@ CREATE TABLE `oauth_jwt` (
   `subject` varchar(80) DEFAULT NULL,
   `public_key` varchar(2000) DEFAULT NULL,
   PRIMARY KEY (`client_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -149,7 +149,7 @@ CREATE TABLE `oauth_refresh_tokens` (
   PRIMARY KEY (`refresh_token`),
   KEY `fk_oauth_refresh_tokens_user_id` (`user_id`),
   CONSTRAINT `oauth_refresh_tokens_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,7 +162,7 @@ DROP TABLE IF EXISTS `oauth_scopes`;
 CREATE TABLE `oauth_scopes` (
   `scope` text,
   `is_default` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,7 +179,7 @@ CREATE TABLE `pvt_roles_users` (
   KEY `fk_pvt_roles_users_user_id` (`user_id`),
   CONSTRAINT `fk_pvt_roles_users_role_id` FOREIGN KEY (`role_id`) REFERENCES `user_roles` (`id`) ON DELETE CASCADE,
   CONSTRAINT `fk_pvt_roles_users_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -194,7 +194,7 @@ CREATE TABLE `user_roles` (
   `name` varchar(40) NOT NULL,
   `description` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -216,7 +216,7 @@ CREATE TABLE `user_social_logins` (
   UNIQUE KEY `uk_social_logins_provider_provider_user_id` (`provider`,`provider_user_id`),
   KEY `k_social_logins_user_id_provider` (`user_id`,`provider`),
   CONSTRAINT `user_social_logins_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -231,7 +231,7 @@ CREATE TABLE `user_token_types` (
   `key` varchar(40) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `k_user_token_types_key` (`key`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -255,7 +255,7 @@ CREATE TABLE `user_tokens` (
   KEY `k_user_tokens_user_id_token_type_id` (`user_id`,`token_type_id`),
   CONSTRAINT `fk_user_tokens_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   CONSTRAINT `fk_user_tokens_user_token_type_id` FOREIGN KEY (`token_type_id`) REFERENCES `user_token_types` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -276,7 +276,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   KEY `k_users_email_enabled` (`email`,`enabled`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
