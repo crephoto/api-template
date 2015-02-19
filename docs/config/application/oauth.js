@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = {
-    name     : 'OAuth Resources',
-    synopsis : '',
-    methods  : [
+    name      : 'OAuth Resources',
+    synopsis  : '',
+    endpoints : [
         {
             name     : 'Authorize',
             synopsis : 'Authorize via OAuth',
